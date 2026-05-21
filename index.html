@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gudeg Bu Tin — Kuliner Legendaris Cianjur Sejak 1998</title>
+  <meta name="description" content="Gudeg Bu Tin, kuliner legendaris Cianjur sejak 1998. Gudeg Spesial Ayam Kampung, Tongseng Kambing, Soto, dan Wedhang Uwuh. Jl. Siliwangi, Gang Laksana 2, Cianjur."/>
+  <meta name="keywords" content="gudeg cianjur, gudeg bu tin, tongseng cianjur, kuliner cianjur, ayam kampung cianjur"/>
+  <meta property="og:title" content="Gudeg Bu Tin — Kuliner Legendaris Cianjur Sejak 1998"/>
+  <meta property="og:description" content="Gudeg otentik Jawa di Cianjur. Dikelola generasi kedua dengan resep asli sejak 1998."/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" type="image/png" href="assets/images/icons/Logo.png" />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     ORNAMEN BATIK SVG — reusable inline symbol
+     ══════════════════════════════════════════════ -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ornamen pojok: motif sulur Jawa -->
+  <symbol id="orn-corner-svg" viewBox="0 0 120 120">
+    <path d="M5,5 Q5,60 60,60 Q5,60 5,115" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    <path d="M5,5 Q40,5 60,40 Q40,5 5,5 Z" stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+    <circle cx="60" cy="60" r="4" fill="currentColor" opacity="0.5"/>
+    <circle cx="20" cy="20" r="2.5" fill="currentColor" opacity="0.4"/>
+    <path d="M60,60 Q80,40 100,20" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="3,4" opacity="0.4"/>
+    <path d="M60,60 Q40,80 20,100" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="3,4" opacity="0.4"/>
+    <path d="M30,10 Q50,30 30,50 Q10,30 30,10 Z" stroke="currentColor" stroke-width="0.8" fill="none" opacity="0.3"/>
+  </symbol>
+
+  <!-- Ornamen divider: motif kawung -->
+  <symbol id="orn-divider-svg" viewBox="0 0 80 28">
+    <ellipse cx="14" cy="14" rx="10" ry="6" stroke="currentColor" stroke-width="1" fill="none"/>
+    <ellipse cx="40" cy="14" rx="10" ry="6" stroke="currentColor" stroke-width="1" fill="none"/>
+    <ellipse cx="66" cy="14" rx="10" ry="6" stroke="currentColor" stroke-width="1" fill="none"/>
+    <circle cx="40" cy="14" r="2.5" fill="currentColor" opacity="0.6"/>
+    <circle cx="14" cy="14" r="1.5" fill="currentColor" opacity="0.4"/>
+    <circle cx="66" cy="14" r="1.5" fill="currentColor" opacity="0.4"/>
+  </symbol>
+</svg>
+
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+     ══════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-brand">
+    <div class="nav-brand-logo">
+        <img src="assets/images/icons/logo.png" alt="Logo Gudeg Bu Tin"/>
+    </div>
+    <span class="nav-brand-text">
+      Gudeg Bu Tin
+      <span>Kuliner Legendaris Cianjur</span>
+    </span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#pesan">Pesan</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+
+  <a href="https://wa.me/6289639964825" class="nav-wa" target="_blank" rel="noopener">
+    <span class="icon-fallback">💬</span>
+    Pesan Sekarang
+  </a>
+
+  <button class="hamburger" aria-label="Buka menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <a href="#tentang">Tentang</a>
+  <a href="#menu">Menu</a>
+  <a href="#pesan">Cara Pesan</a>
+  <a href="#kontak">Kontak</a>
+  <a href="https://wa.me/6289639964825" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- Ornamen pojok -->
+  <div class="orn-corner orn-tl" style="color: var(--brown);">
+    <svg><use href="#orn-corner-svg"/></svg>
+  </div>
+  <div class="orn-corner orn-tr" style="color: var(--brown);">
+    <svg><use href="#orn-corner-svg"/></svg>
+  </div>
+  <div class="orn-corner orn-bl" style="color: var(--brown);">
+    <svg><use href="#orn-corner-svg"/></svg>
+  </div>
+  <div class="orn-corner orn-br" style="color: var(--brown);">
+    <svg><use href="#orn-corner-svg"/></svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-since">Kuliner Legendaris · Cianjur · Sejak 1998</div>
+    <h1 class="hero-title">
+      Gudeg
+      <em>Bu Tin</em>
+    </h1>
+    <p class="hero-subtitle">
+      Cita rasa autentik Jawa, diracik dengan resep asli yang terjaga sejak 1998
+    </p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-fill">Lihat Menu</a>
+      <a href="#kontak" class="btn-outline">Temukan Kami</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+  <div class="hero-fade"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TENTANG
+     ══════════════════════════════════════════════ -->
+<section id="tentang">
+  <div class="wrap">
+    <div class="tentang-grid">
+
+      <!-- Foto utama warung -->
+      <div class="about-frame-wrap reveal">
+        <div class="about-frame-outer"></div>
+        <div class="about-frame-inner">
+
+            <img src="assets/images/icons/Logo.png" alt="Gudeg Bu Tin Cianjur"/>
+
+          <div class="about-img-placeholder">
+            <div class="ph-icon">🍛</div>
+            <div class="ph-text">Gudeg Bu Tin · Cianjur</div>
+          </div>
+        </div>
+        <div class="about-since">
+          <span class="since-year">1998</span>
+          <span class="since-text">Berdiri Sejak</span>
+        </div>
+      </div>
+
+      <!-- Teks -->
+      <div class="about-text reveal">
+        <p class="sec-label">Tentang Kami</p>
+        <h2 class="sec-title">Kuliner Legendaris<br><em>Cianjur Sejak 1998</em></h2>
+        <div class="orn-divider">
+          <svg><use href="#orn-divider-svg"/></svg>
+        </div>
+
+        <p>
+          Berdiri sejak <strong>1998</strong>, Gudeg Bu Tin kini dikelola generasi kedua
+          dengan resep asli yang autentik dan tak pernah berubah.
+        </p>
+        <p>
+          Pelanggan setia Lesehan Bu Tin di Jl. Arif Rahman Hakim,
+          kini kami telah <strong>pindah ke lokasi yang lebih nyaman</strong> —
+          siap menyambut Anda dengan kehangatan yang sama.
+        </p>
+
+        <div class="about-highlight">
+          "Resep turun-temurun yang dijaga dengan sepenuh hati, dari generasi pertama
+          ke generasi kedua, demi cita rasa yang selalu Anda rindukan."
+        </div>
+
+        <div class="info-chips">
+          <div class="info-chip">
+            <!--<img src="assets/images/icons/clock.png" alt=""/>-->
+            <span class="icon-fb">🕐</span>
+            Buka 10.00 – 22.00
+          </div>
+          <div class="info-chip">
+            <!--<img src="assets/images/icons/location.png" alt=""/>-->
+            <span class="icon-fb">📍</span>
+            Cianjur, Jawa Barat
+          </div>
+          <div class="info-chip">
+            <!--<img src="assets/images/icons/star.png" alt=""/>-->
+            <span class="icon-fb">⭐</span>
+            Generasi Kedua
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     MENU
+     ══════════════════════════════════════════════ -->
+<section id="menu">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="sec-label">Daftar Hidangan</p>
+      <h2 class="sec-title">Menu <em>Pilihan</em></h2>
+      <div class="orn-divider" style="max-width:300px">
+        <svg><use href="#orn-divider-svg"/></svg>
+      </div>
+      <p class="sec-body" style="margin-bottom: 2rem;">
+        Gudeg autentik, tongseng kambing/sapi/ayam, paket penyet, dan minuman tradisional Jawa.
+      </p>
+    </div>
+
+    <!-- Tab dan panel dirender otomatis oleh main.js dari MENU_DATA -->
+    <div id="menu-tabs" class="menu-tabs reveal"></div>
+    <div id="menu-panels"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CARA PESAN
+     ══════════════════════════════════════════════ -->
+<section id="pesan">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="sec-label">Cara Memesan</p>
+      <h2 class="sec-title">Pesan <em>di Sini</em></h2>
+      <div class="orn-divider" style="max-width:300px">
+        <svg><use href="#orn-divider-svg"/></svg>
+      </div>
+    </div>
+
+    <div class="platform-grid">
+
+      <!-- GrabFood -->
+      <div class="pcard">
+        <div class="p-icon-wrap">
+            <img src="assets/images/icons/grabfood.png" alt="GrabFood"/>
+        </div>
+        <p class="p-name">GrabFood</p>
+        <p class="p-desc">Pesan lewat GrabFood, kurir terpercaya cepat sampai ke pintu Anda</p>
+        <a href="https://r.grab.com/g/2-1-6-CY2BBCEATF2GGT" class="p-link">
+          <img src="assets/images/icons/grabfood.png" alt=""/>
+          Buka GrabFood
+        </a>
+      </div>
+
+      <!-- ShopeeFood -->
+      <div class="pcard">
+        <div class="p-icon-wrap">
+            <img src="assets/images/icons/shopeefood.png" alt="ShopeeFood"/>
+        </div>
+        <p class="p-name">ShopeeFood</p>
+        <p class="p-desc">Tersedia di ShopeeFood dengan berbagai promo menarik setiap hari</p>
+        <a href="https://spf.shopee.co.id/5L8tyGyrFg" class="p-link">
+          <img src="assets/images/icons/shopeefood.png" alt=""/>
+          Buka ShopeeFood
+        </a>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="pcard">
+        <div class="p-icon-wrap">
+            <img src="assets/images/icons/whatsapp.png" alt="WhatsApp"/>
+        </div>
+        <p class="p-name">WhatsApp</p>
+        <p class="p-desc">Pesan langsung untuk catering, acara, atau pertanyaan menu</p>
+        <a href="https://wa.me/6289639964825" class="p-link" target="_blank" rel="noopener">
+          <img src="assets/images/icons/whatsapp.png" alt=""/>
+          Chat Sekarang
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     KONTAK & LOKASI
+     ══════════════════════════════════════════════ -->
+<section id="kontak">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="sec-label">Lokasi & Kontak</p>
+      <h2 class="sec-title">Temukan <em>Kami</em></h2>
+      <div class="orn-divider" style="max-width:300px">
+        <svg><use href="#orn-divider-svg"/></svg>
+      </div>
+    </div>
+
+    <div class="kontak-grid">
+
+      <!-- Info kontak -->
+      <div class="reveal">
+
+        <div class="k-item">
+          <div class="k-icon-box">
+            <img src="assets/images/icons/maps.png" alt=""/>
+          </div>
+          <div>
+            <p class="k-label">Alamat</p>
+            <p class="k-val">
+              Jl. Siliwangi, Gang Laksana 2,<br>
+              RT.01/RW.16 No.27, Sayang,<br>
+              Cianjur 43213
+            </p>
+          </div>
+        </div>
+
+        <div class="k-item">
+          <div class="k-icon-box">
+            <!--<img src="assets/images/icons/clock.png" alt=""/>-->
+            <span class="icon-fb">🕐</span>
+          </div>
+          <div>
+            <p class="k-label">Jam Buka</p>
+            <p class="k-val">Setiap hari</p>
+            <div class="jam-buka">
+              <span class="dot"></span>
+              Pukul 10.00 – 22.00 WIB
+            </div>
+          </div>
+        </div>
+
+        <div class="k-item">
+          <div class="k-icon-box">
+            <img src="assets/images/icons/whatsapp.png" alt=""/>
+          </div>
+          <div>
+            <p class="k-label">WhatsApp</p>
+            <p class="k-val">
+              <a href="https://wa.me/6289639964825" target="_blank" rel="noopener">0896 3996 4825</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="k-item">
+          <div class="k-icon-box">
+            <img src="assets/images/icons/instagram.png" alt=""/>
+          </div>
+          <div>
+            <p class="k-label">Instagram</p>
+            <p class="k-val">
+              <a href="https://instagram.com/lesehan_gudeg_bu_tin" target="_blank" rel="noopener">@lesehan_gudeg_bu_tin</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="https://instagram.com/lesehan_gudeg_bu_tin" class="soc-btn" target="_blank" rel="noopener">
+            <img src="assets/images/icons/instagram.png" alt=""/>
+            Instagram
+          </a>
+          <a href="https://wa.me/6289639964825" class="soc-btn" target="_blank" rel="noopener">
+            <img src="assets/images/icons/whatsapp.png" alt=""/>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Peta -->
+      <div class="reveal">
+        <!--
+          MAP EMBED: Google Maps embed untuk Gudeg Bu Tin Cianjur.
+          Ini menggunakan koordinat langsung dari link yang diberikan.
+        -->
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.9!2d107.1361679!3d-6.8318905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e685352c6049db3%3A0x619d472f9b69907c!2sGudeg+Bu+Tin!5e0!3m2!1sid!2sid!4v1234567890"
+            title="Lokasi Gudeg Bu Tin Cianjur"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div style="margin-top: 1rem; padding: 1.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px;">
+          <p style="font-family: var(--display); font-size: 0.95rem; font-style: italic; color: var(--brown2); margin-bottom: 0.6rem;">Butuh petunjuk arah?</p>
+          <a href="https://maps.app.goo.gl/K3eSfEWExVquPssC9"
+             class="btn-outline" target="_blank" rel="noopener"
+             style="font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <img src="assets/images/icons/maps.png" alt="" style="width:16px;height:16px;object-fit:contain"/>
+            Buka di Google Maps
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════ -->
+<footer>
+  <div class="foot-left">
+    <span class="foot-brand">Gudeg Bu Tin</span>
+    <span class="foot-tagline">Kuliner Legendaris Cianjur Sejak 1998</span>
+  </div>
+  <div class="foot-right">
+    © 2025 Gudeg Bu Tin · Cianjur, Jawa Barat<br>
+    Jl. Siliwangi, Gang Laksana 2, No.27
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
