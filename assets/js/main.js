@@ -352,16 +352,79 @@ function buildMenu() {
     panelsEl.appendChild(panel);
   });
 
-  /* Tab click handler */
+  // Ganti tab click handler yang lama dengan ini
+  let currentIdx = 0;
+
+  function goToPanel(idx) {
+    currentIdx = idx;
+
+    const hint = document.getElementById('swipe-hint');
+    if (hint && idx !== 0) {
+      hint.style.opacity = '0';
+      hint.style.transition = 'opacity 0.4s';
+      setTimeout(() => hint.style.display = 'none', 400);
+    }
+    
+    // geser track
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    // update tab aktif
+    tabsEl.querySelectorAll('.tab-btn').forEach((b, i) =>
+      b.classList.toggle('active', i === idx)
+    );
+    // scroll tab yang aktif ke tengah
+    const activeBtn = tabsEl.querySelectorAll('.tab-btn')[idx];
+    activeBtn?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    // update dots
+    document.querySelectorAll('.tabs-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === idx)
+    );
+    // reveal cards panel aktif
+    revealCards(document.getElementById('panel-' + keys[idx]));
+    // sesuaikan tinggi track dengan panel aktif
+    const activePanel = document.getElementById('panel-' + keys[idx]);
+    track.style.height = activePanel.offsetHeight + 'px';
+  }
+
+  // Bungkus semua panel dalam track
+  const track = document.createElement('div');
+  track.className = 'panels-track';
+  while (panelsEl.firstChild) track.appendChild(panelsEl.firstChild);
+  panelsEl.appendChild(track);
+  // set tinggi awal sesuai panel pertama
+  const firstPanel = document.getElementById('panel-' + keys[0]);
+  track.style.height = firstPanel.offsetHeight + 'px';
+
+  // Tab click
   tabsEl.addEventListener('click', e => {
     const b = e.target.closest('.tab-btn');
     if (!b) return;
-    tabsEl.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
-    panelsEl.querySelectorAll('.menu-panel').forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    const p = document.getElementById('panel-' + b.dataset.tab);
-    p.classList.add('active');
-    revealCards(p);
+    const idx = [...tabsEl.querySelectorAll('.tab-btn')].indexOf(b);
+    goToPanel(idx);
+  });
+
+  // Swipe touch
+  let touchStartX = 0;
+  let touchStartY = 0;
+  panelsEl.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  panelsEl.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    // pastikan swipe horizontal, bukan scroll vertikal
+    if (Math.abs(dx) < Math.abs(dy) || Math.abs(dx) < 50) return;
+    if (dx < 0 && currentIdx < keys.length - 1) goToPanel(currentIdx + 1); // swipe kiri → next
+    if (dx > 0 && currentIdx > 0) goToPanel(currentIdx - 1);               // swipe kanan → prev
+  }, { passive: true });
+
+  // Dot click juga bisa pindah panel
+  document.getElementById('tabs-dots')?.addEventListener('click', e => {
+    const dot = e.target.closest('.tabs-dot');
+    if (!dot) return;
+    const idx = [...document.querySelectorAll('.tabs-dot')].indexOf(dot);
+    goToPanel(idx);
   });
   
 
@@ -374,6 +437,36 @@ function buildMenu() {
     const atEnd = tabsEl.scrollLeft + tabsEl.clientWidth >= tabsEl.scrollWidth - 8;
     wrap?.classList.toggle('end', atEnd);
   });
+
+  // Dot indicator
+  const dotsWrap = document.getElementById('tabs-dots');
+  if (dotsWrap) {
+    // buat dot sebanyak jumlah tab
+    keys.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'tabs-dot' + (i === 0 ? ' active' : '');
+      dotsWrap.appendChild(dot);
+    });
+
+    // update dot aktif saat tab diklik
+    tabsEl.addEventListener('click', e => {
+      const b = e.target.closest('.tab-btn');
+      if (!b) return;
+      const idx = [...tabsEl.children].indexOf(b);
+      dotsWrap.querySelectorAll('.tabs-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === idx)
+      );
+    });
+
+    // update dot saat scroll
+    tabsEl.addEventListener('scroll', () => {
+      const ratio = tabsEl.scrollLeft / (tabsEl.scrollWidth - tabsEl.clientWidth);
+      const idx = Math.round(ratio * (keys.length - 1));
+      dotsWrap.querySelectorAll('.tabs-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === idx)
+      );
+    });
+  }
 }
 
 function revealCards(panel) {

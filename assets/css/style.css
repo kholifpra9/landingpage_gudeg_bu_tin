@@ -408,8 +408,69 @@ section { position: relative; z-index: 1; }
   color: #fff;
 }
 
-.menu-panel { display: none; }
+/* Dot indicator */
+.tabs-dots {
+  display: none;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
+}
+.tabs-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--border2);
+  transition: background 0.2s, width 0.2s;
+  flex-shrink: 0;
+}
+.tabs-dot.active {
+  background: var(--brown);
+  width: 18px; border-radius: 99px;
+}
+
+/* Swipeable panels */
+#menu-panels {
+  overflow: hidden;
+  position: relative;
+}
+.panels-track {
+  display: flex;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: flex-start;
+}
+.menu-panel {
+  display: block !important;
+  min-width: 100%;
+  width: 100%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
 .menu-panel.active { display: block; }
+
+.panels-track {
+  display: flex;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), height 0.35s ease;
+  align-items: flex-start;
+}
+
+.tabs-hint-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.swipe-hint {
+  display: none;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+  animation: hintPulse 2s ease-in-out 3;
+  /* hilang otomatis setelah user swipe pertama kali */
+}
 
 /* Card grid */
 .cards {
@@ -682,6 +743,10 @@ footer::before {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
 
 /* ═══════════════════════════════════════════
    RESPONSIVE
@@ -712,6 +777,8 @@ footer::before {
     flex-shrink: 0;
     white-space: nowrap;
   }
+  .tabs-dots { display: flex; }
+  .swipe-hint { display: block; }
 }
 @media (max-width: 380px) {
   .cards { grid-template-columns: 1fr; }
