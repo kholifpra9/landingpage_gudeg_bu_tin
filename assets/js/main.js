@@ -594,4 +594,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initDrawer();
   initSmoothScroll();
+  // Lightbox
+  const lightbox     = document.getElementById('lightbox');
+  const lightboxImg  = document.getElementById('lightbox-img');
+  const lightboxCap  = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src, caption) {
+    lightboxImg.src = src;
+    lightboxCap.textContent = caption || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // delegasi klik ke semua foto card
+  document.getElementById('menu-panels').addEventListener('click', e => {
+    const img = e.target.closest('.c-img img');
+    if (!img) return;
+    const name = img.closest('.mcard')?.querySelector('.c-name')?.textContent || '';
+    openLightbox(img.src, name);
+  });
+
+  // tutup lightbox
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
 });
