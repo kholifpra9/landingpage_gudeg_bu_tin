@@ -89,7 +89,7 @@ const MENU = {
   },
 
   tongseng: {
-    label: 'Tongseng & Soto',
+    label: 'Tongseng',
     items: [
       {
         img: 'assets/images/menu/tongseng-kambing.jpg',
@@ -151,6 +151,7 @@ const MENU = {
         name: 'Nasi Pecel Telor Dadar',
         desc: 'Nasi pecel segar dengan telur dadar crispy dan sambal kacang pilihan',
         price: 'Rp 13.000',
+        badge: 'Pilihan',
         tag: 'Segar',
       },
       {
@@ -160,6 +161,7 @@ const MENU = {
         name: 'Nasi Telor Tempe Penyet',
         desc: 'Nasi dengan tempe penyet dan telur goreng, cocok dengan sambal',
         price: 'Rp 13.000',
+        badge: 'Pilihan',
         tag: 'Hemat',
       },
       {
@@ -169,7 +171,6 @@ const MENU = {
         name: 'Nasi Ayam Kampung Opor / Bakar / Goreng',
         desc: 'Nasi dengan ayam kampung pilihan: opor gurih, bakar arang, atau goreng crispy',
         price: 'Rp 22.000',
-        badge: 'Pilihan',
         tag: 'Ayam Kampung',
       },
     ],
