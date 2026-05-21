@@ -34,7 +34,7 @@ const MENU = {
         desc: 'Nasi + Gudeg + Krecek + Telur Setengah + Tahu/Tempe Bacem + Opor Ayam Kampung',
         price: 'Rp 30.000',
         badge: 'Terlaris',
-        tag: 'Ayam Kampung',
+        tag: 'Ayam Opor',
         featured: true,
       },
       {
@@ -84,40 +84,6 @@ const MENU = {
         desc: 'Nasi + Gudeg + Krecek + Telur Bacem Utuh + Tahu/Tempe Bacem',
         price: 'Rp 18.000',
         tag: 'Pilihan Telur',
-      },
-    ],
-  },
-
-  nasi: {
-    label: 'Nasi & Ayam',
-    items: [
-      {
-        img: 'assets/images/menu/nasi-pecel.jpg',
-        emoji: '🥗',
-        cat: 'Nasi',
-        name: 'Nasi Pecel Telor Dadar',
-        desc: 'Nasi pecel segar dengan telur dadar crispy dan sambal kacang pilihan',
-        price: 'Rp 13.000',
-        tag: 'Segar',
-      },
-      {
-        img: 'assets/images/menu/nasi-tempe-penyet.jpg',
-        emoji: '🫔',
-        cat: 'Nasi',
-        name: 'Nasi Telor Tempe Penyet',
-        desc: 'Nasi dengan tempe penyet dan telur goreng, cocok dengan sambal',
-        price: 'Rp 13.000',
-        tag: 'Hemat',
-      },
-      {
-        img: 'assets/images/menu/nasi-ayam-kampung.jpg',
-        emoji: '🍗',
-        cat: 'Nasi',
-        name: 'Nasi Ayam Kampung Opor / Bakar / Goreng',
-        desc: 'Nasi dengan ayam kampung pilihan: opor gurih, bakar arang, atau goreng crispy',
-        price: 'Rp 22.000',
-        badge: 'Pilihan',
-        tag: 'Ayam Kampung',
       },
     ],
   },
@@ -174,6 +140,41 @@ const MENU = {
       },
     ],
   },
+
+  nasi: {
+    label: 'Nasi & Ayam',
+    items: [
+      {
+        img: 'assets/images/menu/nasi-pecel.jpg',
+        emoji: '🥗',
+        cat: 'Nasi',
+        name: 'Nasi Pecel Telor Dadar',
+        desc: 'Nasi pecel segar dengan telur dadar crispy dan sambal kacang pilihan',
+        price: 'Rp 13.000',
+        tag: 'Segar',
+      },
+      {
+        img: 'assets/images/menu/nasi-tempe-penyet.jpg',
+        emoji: '🫔',
+        cat: 'Nasi',
+        name: 'Nasi Telor Tempe Penyet',
+        desc: 'Nasi dengan tempe penyet dan telur goreng, cocok dengan sambal',
+        price: 'Rp 13.000',
+        tag: 'Hemat',
+      },
+      {
+        img: 'assets/images/menu/nasi-ayam-kampung.jpg',
+        emoji: '🍗',
+        cat: 'Nasi',
+        name: 'Nasi Ayam Kampung Opor / Bakar / Goreng',
+        desc: 'Nasi dengan ayam kampung pilihan: opor gurih, bakar arang, atau goreng crispy',
+        price: 'Rp 22.000',
+        badge: 'Pilihan',
+        tag: 'Ayam Kampung',
+      },
+    ],
+  },
+
 
   satuan: {
     label: 'Menu Satuan',
@@ -362,9 +363,17 @@ function buildMenu() {
     p.classList.add('active');
     revealCards(p);
   });
+  
 
   /* Reveal first panel */
   setTimeout(() => revealCards(document.getElementById('panel-' + keys[0])), 150);
+
+  // Fade hilang saat scroll sudah di ujung kanan
+  const wrap = tabsEl?.parentElement;
+  tabsEl?.addEventListener('scroll', () => {
+    const atEnd = tabsEl.scrollLeft + tabsEl.clientWidth >= tabsEl.scrollWidth - 8;
+    wrap?.classList.toggle('end', atEnd);
+  });
 }
 
 function revealCards(panel) {
