@@ -747,9 +747,11 @@ footer::before {
   position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
   background: var(--surface); border-left: 1px solid var(--border);
   z-index: 2000; padding: 5rem 2rem 2rem;
-  transition: right 0.4s cubic-bezier(0.77,0,0.18,1);
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex; flex-direction: column; gap: 0.3rem;
   box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
 }
 .drawer.open { right: 0; }
 .drawer a {
@@ -762,7 +764,9 @@ footer::before {
 .drawer a:hover { color: var(--brown); }
 .overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,0.35);
-  z-index: 1999; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  z-index: 1999; opacity: 0; pointer-events: none;
+  transition: opacity 0.25s ease;
+  will-change: opacity;
 }
 .overlay.open { opacity: 1; pointer-events: all; }
 
@@ -794,7 +798,7 @@ footer::before {
 @media (max-width: 960px) {
   .nav-links, .nav-wa { display: none; }
   .hamburger { display: flex; }
-  nav { padding: 1rem 1.5rem; }
+  nav { padding: 1rem 1.5rem; backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(253,246,236,0.98); }
   nav.scrolled { padding: 0.65rem 1.5rem; }
   .wrap { padding: 4.5rem 1.5rem; }
   .tentang-grid, .kontak-grid { grid-template-columns: 1fr; gap: 3rem; }
